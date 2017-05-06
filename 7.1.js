@@ -5,20 +5,22 @@ function SmartPlantEater() {
 
 SmartPlantEater.prototype.act = function(view) {
     var space = view.find(" ");
-    if (this.energy > 120 && space) {
+    var MINIMAL_ENERGY_FOR_REPRODUCTION = 120;
+    if (this.energy > MINIMAL_ENERGY_FOR_REPRODUCTION && space) {
         return {
             type: "reproduce",
             direction: space
         };
     }
     var plant = view.find("*");
-    if (plant && this.energy < 100) {
+    var MINIMAL_ENERGY_FOR_EATING = 100;
+    if (plant && this.energy < MINIMAL_ENERGY_FOR_EATING) {
         return {
             type: "eat",
             direction: plant
         };
     }
-    if (plant && this.energy > 100) {
+    if (plant && this.energy > MINIMAL_ENERGY_FOR_EATING) {
         return {
             type: "move",
             direction: this.dir
