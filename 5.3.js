@@ -12,12 +12,8 @@ function groupBy(array, groupOf) {
 
         if (!Array.isArray(groups[groupName])) {
             groups[groupName] = [];
-        }
-
-        if (groupName in groups) {
             groups[groupName].push(element);
-        } 
-        else {
+        } else {
             groups[groupName] = [element];
         }
     })
