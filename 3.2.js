@@ -1,14 +1,10 @@
-function isEven(num) {
-    if (num == 0) {
+var isEven = function(n) {
+    n = Math.abs(n);
+    if (n === 0) {
         return true;
     }
-    else if (num == 1) {
+    if (n === 1) {
         return false;
     }
-    else if (num < 0) {
-        return isEven(-num);
-    }
-    else {
-        return isEven(num - 2);
-    }
+    return isEven(n - 2);
 }
