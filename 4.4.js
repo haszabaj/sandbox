@@ -24,6 +24,6 @@ function deepEqual(a, b) {
     }
 
 
-  return propsA === propsB
+    return propsA === propsB
 
 }
