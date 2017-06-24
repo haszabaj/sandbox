@@ -11,18 +11,17 @@ function ArraySeq(array) {
     this.array = array;
 }
 
-
-ArraySeq.prototype.next = function() {
-    if (this.pos < this.array.length - 1) {
-        this.pos++;
-        return true;
-    }
-};
-
 ArraySeq.prototype.hasNext = function() {
     if (this.pos < this.array.length - 1) {
         return true;
     } 
+};
+
+ArraySeq.prototype.next = function() {
+    if (ArraySeq.prototype.hasNext) {
+        this.pos++;
+        return true;
+    }
 };
 
 
@@ -36,12 +35,6 @@ function RangeSeq(from, to) {
     this.to = to;
 }
 
-RangeSeq.prototype.next = function() {
-    if (this.pos < this.to) {
-        this.pos++;
-        return true;
-    }
-};
 
 RangeSeq.prototype.hasNext = function() {
     if (this.pos < this.to) {
@@ -50,17 +43,13 @@ RangeSeq.prototype.hasNext = function() {
 };
 
 
+RangeSeq.prototype.next = function() {
+    if (RangeSeq.prototype.hasNext) {
+        this.pos++;
+        return true;
+    }
+};
+
 RangeSeq.prototype.current = function() {
     return this.pos;
 };
-
-
-logFive(new ArraySeq([1, 2]));
-// → 1
-// → 2
-logFive(new RangeSeq(100, 1000));
-// → 100
-// → 101
-// → 102
-// → 103
-// → 104
